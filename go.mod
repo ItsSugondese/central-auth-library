@@ -1,4 +1,4 @@
-module central-auth-library
+module github.com/ItsSugondese/central-auth-library
 
 go 1.25.1
 

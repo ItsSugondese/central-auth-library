@@ -1,8 +1,8 @@
 package token_services
 
 //import (
-//	authentication_middleware "central-auth-library/pkg/middleware/authentication-middleware"
-//	paseto_token "central-auth-library/pkg/utils/token/paseto-token"
+//	authentication_middleware "github.com/ItsSugondese/central-auth-library/pkg/middleware/authentication-middleware"
+//	paseto_token "github.com/ItsSugondese/central-auth-library/pkg/utils/token/paseto-token"
 //	"github.com/gin-gonic/gin"
 //)
 //

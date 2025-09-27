@@ -2,10 +2,10 @@ package authentication_middleware
 
 //
 //import (
-//	response_status_enum "central-auth-library/enums/interface-enums/response/response-status-enum"
-//	global_gin_context "central-auth-library/global/global-gin-context"
-//	globaldto "central-auth-library/global/global_dto"
-//	"central-auth-library/pkg/utils/token/paseto-token"
+//	response_status_enum "github.com/ItsSugondese/central-auth-library/enums/interface-enums/response/response-status-enum"
+//	global_gin_context "github.com/ItsSugondese/central-auth-library/global/global-gin-context"
+//	globaldto "github.com/ItsSugondese/central-auth-library/global/global_dto"
+//	"github.com/ItsSugondese/central-auth-library/pkg/utils/token/paseto-token"
 //	"errors"
 //	"github.com/gin-gonic/gin"
 //	"net/http"

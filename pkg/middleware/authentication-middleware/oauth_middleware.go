@@ -1,7 +1,7 @@
 package authentication_middleware
 
 import (
-	oauth_token "central-auth-library/pkg/utils/token/oauth-token"
+	oauth_token "github.com/ItsSugondese/central-auth-library/pkg/utils/token/oauth-token"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

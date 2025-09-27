@@ -1,10 +1,10 @@
 package central_auth_library
 
 import (
-	tokenauthtypeenums "central-auth-library/enums/struct-enums/token-auth-type-enums"
-	tokenservices "central-auth-library/global/global-services/token-services"
-	jwttoken "central-auth-library/pkg/utils/token/jwt-token"
-	oauthtoken "central-auth-library/pkg/utils/token/oauth-token"
+	tokenauthtypeenums "github.com/ItsSugondese/central-auth-library/enums/struct-enums/token-auth-type-enums"
+	tokenservices "github.com/ItsSugondese/central-auth-library/global/global-services/token-services"
+	jwttoken "github.com/ItsSugondese/central-auth-library/pkg/utils/token/jwt-token"
+	oauthtoken "github.com/ItsSugondese/central-auth-library/pkg/utils/token/oauth-token"
 	"github.com/go-oauth2/oauth2/v4/server"
 )
 
