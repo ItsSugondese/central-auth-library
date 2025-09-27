@@ -1,7 +1,7 @@
 package authentication_middleware
 
 import (
-	jwt_token "github.com/ItsSugondese/central-auth-library-go/pkg/utils/token/jwt-token"
+	jwt_token "github.com/ItsSugondese/central-auth-library/pkg/utils/token/jwt-token"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

@@ -1,8 +1,8 @@
 package token_services
 
 import (
-	authentication_middleware "github.com/ItsSugondese/central-auth-library-go/pkg/middleware/authentication-middleware"
-	jwt_token "github.com/ItsSugondese/central-auth-library-go/pkg/utils/token/jwt-token"
+	authentication_middleware "github.com/ItsSugondese/central-auth-library/pkg/middleware/authentication-middleware"
+	jwt_token "github.com/ItsSugondese/central-auth-library/pkg/utils/token/jwt-token"
 	"github.com/gin-gonic/gin"
 )
 
