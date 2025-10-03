@@ -7,11 +7,12 @@ import (
 )
 
 type OauthTokenService struct {
-	maker oauth_token.OAuthMaker
+	maker     oauth_token.OAuthMaker
+	signedKey string
 }
 
-func NewOauthTokenService(oAuthMaker oauth_token.OAuthMaker) *OauthTokenService {
-	return &OauthTokenService{maker: oAuthMaker}
+func NewOauthTokenService(oAuthMaker oauth_token.OAuthMaker, signedKey string) *OauthTokenService {
+	return &OauthTokenService{maker: oAuthMaker, signedKey: signedKey}
 }
 
 func (o *OauthTokenService) AuthMiddleware() gin.HandlerFunc {
@@ -26,4 +27,8 @@ func (o *OauthTokenService) GenerateToken(c *gin.Context, userId string) (string
 	}
 
 	return "", nil
+}
+
+func (o *OauthTokenService) DecryptTokenContext(ctx *gin.Context) (payload map[string]interface{}, err error) {
+	return o.maker.DecryptToken(ctx.Request, o.signedKey)
 }

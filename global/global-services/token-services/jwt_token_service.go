@@ -21,3 +21,7 @@ func (j *JwtTokenService) AuthMiddleware() gin.HandlerFunc {
 func (j *JwtTokenService) GenerateToken(c *gin.Context, userId string) (string, error) {
 	return j.maker.CreateToken(userId)
 }
+
+func (j *JwtTokenService) DecryptTokenContext(ctx *gin.Context) (payload map[string]interface{}, err error) {
+	return payload, err
+}

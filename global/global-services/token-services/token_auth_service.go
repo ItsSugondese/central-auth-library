@@ -7,5 +7,5 @@ import (
 type TokenAuthService interface {
 	AuthMiddleware() gin.HandlerFunc
 	GenerateToken(c *gin.Context, userID string) (string, error)
-	//DecryptTokenContext(ctx *gin.Context, maker *paseto_token2.PasetoMaker) (*paseto_token2.Payload, error)
+	DecryptTokenContext(ctx *gin.Context) (payload map[string]interface{}, err error)
 }

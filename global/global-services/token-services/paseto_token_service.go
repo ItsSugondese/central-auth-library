@@ -21,3 +21,7 @@ package token_services
 //func (p *PasetoTokenService) GenerateToken(c *gin.Context, userId string) (string, error) {
 //	return p.maker.CreateToken(userId)
 //}
+//
+//func (p *PasetoTokenService) DecryptTokenContext(ctx *gin.Context) (payload map[string]interface{}, err error) {
+//	return payload, err
+//}

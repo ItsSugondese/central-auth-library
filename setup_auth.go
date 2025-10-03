@@ -8,7 +8,7 @@ import (
 	"github.com/go-oauth2/oauth2/v4/server"
 )
 
-func SetupAuthToken(authType string, server *server.Server) tokenservices.TokenAuthService {
+func SetupAuthToken(authType string, server *server.Server, signedKey string) tokenservices.TokenAuthService {
 	if authType == tokenauthtypeenums.TokenAuthType.OAUTH {
 		tokenMaker, err := oauthtoken.NewOAuthMaker(server)
 		if err != nil {
@@ -16,7 +16,7 @@ func SetupAuthToken(authType string, server *server.Server) tokenservices.TokenA
 		} else if tokenMaker == nil {
 			panic("Token Maker set to null for OAuth")
 		}
-		return tokenservices.NewOauthTokenService(*tokenMaker)
+		return tokenservices.NewOauthTokenService(*tokenMaker, signedKey)
 	} else {
 		//else if authType == token_auth_type_enums.TokenAuthType.PASETO {
 		//	tokenMaker, err := paseto_token.NewPasetoMaker()
