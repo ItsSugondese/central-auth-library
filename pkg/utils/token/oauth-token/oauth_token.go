@@ -13,13 +13,15 @@ import (
 type OAuthMaker struct {
 	srv              *server.Server
 	TokenClaimsModel *oauth2_setup.JWTCustomAccessClaims
+	signedKey        string
 }
 
 var TokenMaker *OAuthMaker
 
-func NewOAuthMaker(server *server.Server) (*OAuthMaker, error) {
+func NewOAuthMaker(server *server.Server, signedKey string) (*OAuthMaker, error) {
 	maker := &OAuthMaker{
-		srv: server,
+		srv:       server,
+		signedKey: signedKey,
 	}
 
 	return maker, nil
@@ -43,7 +45,7 @@ func (maker *OAuthMaker) VerifyToken(request *http.Request) (oauth2.TokenInfo, e
 	return bearerToken, nil
 }
 
-func (maker *OAuthMaker) DecryptToken(request *http.Request, signedKey string) (payload map[string]interface{}, err error) {
+func (maker *OAuthMaker) DecryptToken(request *http.Request) (payload map[string]interface{}, err error) {
 
 	accessToken, ok := maker.srv.AccessTokenResolveHandler(request)
 	if !ok {
@@ -56,7 +58,7 @@ func (maker *OAuthMaker) DecryptToken(request *http.Request, signedKey string) (
 		if _, ok := t.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("parse error")
 		}
-		return []byte(signedKey), nil
+		return []byte(maker.signedKey), nil
 	})
 	if err != nil {
 		return nil, err

@@ -10,13 +10,13 @@ import (
 
 func SetupAuthToken(authType string, server *server.Server, signedKey string) tokenservices.TokenAuthService {
 	if authType == tokenauthtypeenums.TokenAuthType.OAUTH {
-		tokenMaker, err := oauthtoken.NewOAuthMaker(server)
+		tokenMaker, err := oauthtoken.NewOAuthMaker(server, signedKey)
 		if err != nil {
 			panic("Error Setting up token maker for OAuth: " + (err.Error()))
 		} else if tokenMaker == nil {
 			panic("Token Maker set to null for OAuth")
 		}
-		return tokenservices.NewOauthTokenService(*tokenMaker, signedKey)
+		return tokenservices.NewOauthTokenService(tokenMaker)
 	} else {
 		//else if authType == token_auth_type_enums.TokenAuthType.PASETO {
 		//	tokenMaker, err := paseto_token.NewPasetoMaker()
